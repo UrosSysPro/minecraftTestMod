@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "test_mod",
+  "version": "${version}",
+  "name": "Test Mod",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "org.systempro.testmod.TestModClientInitializer"
+    ],
+    "main": [
+      "org.systempro.testmod.TestModInitializer"
+    ]
+  },
+  "mixins": [
+    "org.systempro.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.10",
+    "fabric": "*",
+    "minecraft": "1.19.2"
+  }
+}
