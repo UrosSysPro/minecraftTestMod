@@ -14,6 +14,14 @@ public class ModToolMaterial implements ToolMaterial {
         20,
         Ingredient.ofItems(Items.EMERALD)
     );
+    public static final ModToolMaterial IRON_BLOCK_TOOL_MATERIAL=new ModToolMaterial(
+        500,
+        2,
+        20,
+        1,
+        30,
+        Ingredient.ofItems(Items.IRON_BLOCK)
+    );
     public int durability;
     public float miningSpeedMultiplier;
     public float attackDamage;

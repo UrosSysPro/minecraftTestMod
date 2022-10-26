@@ -3,5 +3,12 @@
   "item.test_mod.emerald_shovel": "Emerald Shovel",
   "item.test_mod.emerald_axe": "Emerald Axe",
   "item.test_mod.emerald_pickaxe": "Emerald Pickaxe",
-  "item.test_mod.emerald_hoe": "Emerald Hoe"
+  "item.test_mod.emerald_hoe": "Emerald Hoe",
+
+  "item.test_mod.emerald_helmet": "Emerald Helmet",
+  "item.test_mod.emerald_chestplate": "Emerald Chestplate",
+  "item.test_mod.emerald_leggings": "Emerald Leggings",
+  "item.test_mod.emerald_boots": "Emerald Boots",
+
+  "item.test_mod.hammer": "Hammer"
 }

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "W W",
+    "WWW",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:emerald"
+    }
+  },
+  "result": {
+    "item": "test_mod:emerald_chestplate"
+  }
+}
+
