@@ -11,6 +11,5 @@ public class TestModInitializer implements ModInitializer {
     public void onInitialize() {
         ItemInitializer.init();
         BlockInitializer.init();
-        EntityInitializer.init();
     }
 }

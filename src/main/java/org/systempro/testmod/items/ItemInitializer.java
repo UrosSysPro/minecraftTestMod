@@ -6,12 +6,15 @@ import net.fabricmc.fabric.mixin.item.group.ItemGroupMixin;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 public class ItemInitializer {
     public static ItemGroup COOL_ITEMS;
+
     public static ToolItem EMERALD_PICKAXE, EMERALD_SHOVEL, EMERALD_SWORD,EMERALD_AXE,EMERALD_HOE;
     public static ToolItem HAMMER;
+    public static Stoner STONER;
     public static ArmorItem EMERALD_HELMET,EMERALD_CHESTPLATE,EMERALD_LEGGINGS,EMERALD_BOOTS;
     public static void init(){
 
@@ -85,5 +88,13 @@ public class ItemInitializer {
 
         HAMMER=new Hammer(ModToolMaterial.IRON_BLOCK_TOOL_MATERIAL,new FabricItemSettings().group(COOL_ITEMS));
         Registry.register(Registry.ITEM,new Identifier("test_mod","hammer"),HAMMER);
+
+        STONER=new Stoner(new FabricItemSettings()
+            .group(COOL_ITEMS)
+            .maxCount(1)
+            .rarity(Rarity.EPIC)
+        );
+        Registry.register(Registry.ITEM,new Identifier("test_mod","stoner"),STONER);
+
     }
 }
