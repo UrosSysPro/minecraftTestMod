@@ -95,6 +95,5 @@ public class ItemInitializer {
             .rarity(Rarity.EPIC)
         );
         Registry.register(Registry.ITEM,new Identifier("test_mod","stoner"),STONER);
-
     }
 }

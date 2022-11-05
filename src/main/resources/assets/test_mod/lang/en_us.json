@@ -11,5 +11,11 @@
   "item.test_mod.emerald_boots": "Emerald Boots",
 
   "item.test_mod.hammer": "Hammer",
-  "item.test_mod.stoner": "Stoner"
+  "item.test_mod.stoner": "Stoner",
+
+  "item.test_mod.cool_block_item": "kul blok",
+  "block.test_mod.cool_block": "kul blok",
+
+  "block.test_mod.disco_block": "Disco block",
+  "item.test_mod.disco_block_tem": "Disco block"
 }
