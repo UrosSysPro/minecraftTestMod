@@ -13,10 +13,20 @@ import net.minecraft.util.registry.Registry;
 import org.systempro.testmod.items.ItemInitializer;
 
 public class EntityInitializer {
-    public static EntityType<FlyingHammerEntity> FLYING_HAMMER_ENTITY_TYPE;
+    public static EntityType<FlyingHammerEntity> FLYING_HAMMER_ENTITY;
     public static EntityType<FlyingMobEntity> FLYING_MOB;
     public static SpawnEggItem FLYING_MOB_SPAWN_EGG;
     public static void init(){
+//        FLYING_HAMMER_ENTITY=Registry.register(
+//            Registry.ENTITY_TYPE,
+//            new Identifier("test_mod","flying_hammer"),
+//            FabricEntityTypeBuilder.create(
+//                SpawnGroup.MISC,
+//                FlyingHammerEntity::new
+//            ).dimensions(
+//                EntityDimensions.fixed(0.5f,0.5f)
+//            ).build()
+//        );
         FLYING_MOB= Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier("test_mod","flying_mob"),
@@ -38,5 +48,6 @@ public class EntityInitializer {
     }
     public static void registerAttributes(){
         FabricDefaultAttributeRegistry.register(FLYING_MOB,FlyingMobEntity.setAttributes());
+//        FabricDefaultAttributeRegistry.register(FLYING_HAMMER_ENTITY,FlyingHammerEntity.setAttributes());
     }
 }

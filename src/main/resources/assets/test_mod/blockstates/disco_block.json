@@ -1,6 +1,9 @@
 {
   "variants": {
-    "": { "model": "test_mod:block/disco_block" }
+    "light=0": { "model": "test_mod:block/disco_block_0" },
+    "light=1": { "model": "test_mod:block/disco_block_1" },
+    "light=2": { "model": "test_mod:block/disco_block_2" },
+    "light=3": { "model": "test_mod:block/disco_block_3" }
   }
 }
 

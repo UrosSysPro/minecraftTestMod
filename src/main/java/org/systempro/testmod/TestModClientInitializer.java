@@ -15,5 +15,6 @@ public class TestModClientInitializer implements ClientModInitializer {
     public void onInitializeClient() {
         EntityInitializer.init();
         EntityRendererRegistry.register(EntityInitializer.FLYING_MOB, FlyingMobRenderer::new);
+//        EntityRendererRegistry.register(EntityInitializer.FLYING_HAMMER_ENTITY, FlyingHammerRenderer::new);
     }
 }

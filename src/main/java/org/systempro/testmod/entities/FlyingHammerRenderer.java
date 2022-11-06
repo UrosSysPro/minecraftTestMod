@@ -12,29 +12,17 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3f;
+import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 
-public class FlyingHammerRenderer extends EntityRenderer<FlyingHammerEntity> {
-    public static final Identifier TEXTURE = new Identifier("test_mod","textures/item/hammer.png");
-    private final TridentEntityModel model;
+public class FlyingHammerRenderer extends GeoEntityRenderer<FlyingHammerEntity> {
 
-    public FlyingHammerRenderer(EntityRendererFactory.Context context) {
-        super(context);
-        this.model = new TridentEntityModel(context.getPart(EntityModelLayers.TRIDENT));
+    public FlyingHammerRenderer(EntityRendererFactory.Context renderManager, FlyingHammerModel modelProvider) {
+        super(renderManager, modelProvider);
     }
 
     @Override
-    public void render(FlyingHammerEntity flyingHammerEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
-        matrixStack.push();
-        matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(MathHelper.lerp(g, flyingHammerEntity.prevYaw, flyingHammerEntity.getYaw()) - 90.0f));
-        matrixStack.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(MathHelper.lerp(g, flyingHammerEntity.prevPitch, flyingHammerEntity.getPitch()) + 90.0f));
-        VertexConsumer vertexConsumer = ItemRenderer.getDirectItemGlintConsumer(vertexConsumerProvider, this.model.getLayer(this.getTexture(flyingHammerEntity)), false, false);
-        this.model.render(matrixStack, vertexConsumer, i, OverlayTexture.DEFAULT_UV, 1.0f, 1.0f, 1.0f, 1.0f);
-        matrixStack.pop();
-        super.render(flyingHammerEntity, f, g, matrixStack, vertexConsumerProvider, i);
-    }
-
-    @Override
-    public Identifier getTexture(FlyingHammerEntity tridentEntity) {
-        return TEXTURE;
+    public Identifier getTexture(FlyingHammerEntity entity) {
+        return new Identifier("test_mod","textures/entity/flying_hammer/flying_hammer.png");
     }
 }
