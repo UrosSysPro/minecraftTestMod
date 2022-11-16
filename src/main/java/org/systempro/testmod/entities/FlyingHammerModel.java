@@ -13,7 +13,7 @@ public class FlyingHammerModel extends AnimatedGeoModel<FlyingHammerEntity> {
 
     @Override
     public Identifier getModelResource(FlyingHammerEntity object) {
-        return new Identifier("test_mod","geo/flying_hammer.json");
+        return new Identifier("test_mod","geo/flying_hammer.geo.json");
     }
 
     @Override

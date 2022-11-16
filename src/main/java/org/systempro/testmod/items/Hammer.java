@@ -15,10 +15,10 @@ import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import org.systempro.testmod.entities.EntityInitializer;
 import org.systempro.testmod.entities.FlyingHammerEntity;
 
 import java.util.List;
@@ -51,7 +51,12 @@ public class Hammer extends ToolItem {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        System.out.println("use");
+        if(!world.isClient) {
+            FlyingHammerEntity entity = new FlyingHammerEntity(EntityInitializer.FLYING_HAMMER_ENTITY, world);
+            entity.set(user);
+            world.spawnEntity(entity);
+            user.getInventory().removeOne(user.getStackInHand(hand));
+        }
         return TypedActionResult.success(user.getStackInHand(hand),true);
     }
 

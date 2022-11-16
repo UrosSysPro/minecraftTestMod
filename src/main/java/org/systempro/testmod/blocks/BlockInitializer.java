@@ -24,15 +24,15 @@ public class BlockInitializer {
         COOL_BLOCK_ITEM=new BlockItem(COOL_BLOCK,new FabricItemSettings().group(ItemInitializer.COOL_ITEMS));
         Registry.register(Registry.ITEM,new Identifier("test_mod","cool_block_item"),COOL_BLOCK_ITEM);
 
-        DISCO_BLOCK=new DiscoBlock(FabricBlockSettings.of(Material.METAL).strength(4));
-        Registry.register(Registry.BLOCK,new Identifier("test_mod","disco_block"),DISCO_BLOCK);
+//        DISCO_BLOCK=new DiscoBlock(FabricBlockSettings.of(Material.METAL).strength(4));
+//        Registry.register(Registry.BLOCK,new Identifier("test_mod","disco_block"),DISCO_BLOCK);
+//
+//        DISCO_BLOCK_ENTITY=Registry.register(Registry.BLOCK_ENTITY_TYPE,
+//            new Identifier("test_mod","demo_block_entity"),
+//            FabricBlockEntityTypeBuilder.create(DiscoBlockEntity::new,DISCO_BLOCK).build()
+//        );
 
-        DISCO_BLOCK_ENTITY=Registry.register(Registry.BLOCK_ENTITY_TYPE,
-            new Identifier("test_mod","demo_block_entity"),
-            FabricBlockEntityTypeBuilder.create(DiscoBlockEntity::new,DISCO_BLOCK).build()
-        );
-
-        DISCO_BLOCK_ITEM=new BlockItem(DISCO_BLOCK,new FabricItemSettings().group(ItemInitializer.COOL_ITEMS));
-        Registry.register(Registry.ITEM,new Identifier("test_mod","disco_block_item"),DISCO_BLOCK_ITEM);
+//        DISCO_BLOCK_ITEM=new BlockItem(DISCO_BLOCK,new FabricItemSettings().group(ItemInitializer.COOL_ITEMS));
+//        Registry.register(Registry.ITEM,new Identifier("test_mod","disco_block_item"),DISCO_BLOCK_ITEM);
     }
 }

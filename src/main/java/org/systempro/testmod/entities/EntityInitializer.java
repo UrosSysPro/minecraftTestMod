@@ -3,10 +3,9 @@ package org.systempro.testmod.entities;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.entity.EntityDimensions;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.*;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.mob.AmbientEntity;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -17,16 +16,16 @@ public class EntityInitializer {
     public static EntityType<FlyingMobEntity> FLYING_MOB;
     public static SpawnEggItem FLYING_MOB_SPAWN_EGG;
     public static void init(){
-//        FLYING_HAMMER_ENTITY=Registry.register(
-//            Registry.ENTITY_TYPE,
-//            new Identifier("test_mod","flying_hammer"),
-//            FabricEntityTypeBuilder.create(
-//                SpawnGroup.MISC,
-//                FlyingHammerEntity::new
-//            ).dimensions(
-//                EntityDimensions.fixed(0.5f,0.5f)
-//            ).build()
-//        );
+        FLYING_HAMMER_ENTITY=Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier("test_mod","flying_hammer"),
+            FabricEntityTypeBuilder.create(
+                SpawnGroup.MISC,
+                FlyingHammerEntity::new
+            ).dimensions(
+                EntityDimensions.fixed(0.5f,0.5f)
+            ).build()
+        );
         FLYING_MOB= Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier("test_mod","flying_mob"),
@@ -48,6 +47,6 @@ public class EntityInitializer {
     }
     public static void registerAttributes(){
         FabricDefaultAttributeRegistry.register(FLYING_MOB,FlyingMobEntity.setAttributes());
-//        FabricDefaultAttributeRegistry.register(FLYING_HAMMER_ENTITY,FlyingHammerEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(FLYING_HAMMER_ENTITY,FlyingHammerEntity.setAttributes());
     }
 }

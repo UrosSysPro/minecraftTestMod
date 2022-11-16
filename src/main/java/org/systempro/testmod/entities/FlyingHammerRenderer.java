@@ -17,8 +17,8 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 
 public class FlyingHammerRenderer extends GeoEntityRenderer<FlyingHammerEntity> {
 
-    public FlyingHammerRenderer(EntityRendererFactory.Context renderManager, FlyingHammerModel modelProvider) {
-        super(renderManager, modelProvider);
+    public FlyingHammerRenderer(EntityRendererFactory.Context renderManager) {
+        super(renderManager, new FlyingHammerModel());
     }
 
     @Override
