@@ -22,6 +22,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -47,9 +48,8 @@ public class FlyingHammerEntity extends AmbientEntity implements IAnimatable {
         Vec3d position=new Vec3d(x,y,z).add(speed).add(speed);
         setVelocity(speed);
         setPosition(position);
-        setPitch(pitch);
-        setYaw(yaw);
-        this.roll=(int)roll;
+
+        setRotation(yaw,pitch);
     }
     public void set(PlayerEntity player){
         set(player.getX(),player.getY(),player.getZ(),player.getPitch(),player.getHeadYaw(),player.getRoll());
@@ -62,6 +62,8 @@ public class FlyingHammerEntity extends AmbientEntity implements IAnimatable {
 
     @Override
     public void onPlayerCollision(PlayerEntity player) {
+        player.sendMessage(Text.literal("pick up"));
+
         super.onPlayerCollision(player);
     }
 

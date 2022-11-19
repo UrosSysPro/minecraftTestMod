@@ -15,6 +15,8 @@ public class ItemInitializer {
     public static ToolItem EMERALD_PICKAXE, EMERALD_SHOVEL, EMERALD_SWORD,EMERALD_AXE,EMERALD_HOE;
     public static ToolItem HAMMER;
     public static Stoner STONER;
+    public static VoidItem VOID_ITEM;
+    public static SpongeFractal SPONGE_FRACTAL;
     public static ArmorItem EMERALD_HELMET,EMERALD_CHESTPLATE,EMERALD_LEGGINGS,EMERALD_BOOTS;
     public static void init(){
 
@@ -95,5 +97,20 @@ public class ItemInitializer {
             .rarity(Rarity.EPIC)
         );
         Registry.register(Registry.ITEM,new Identifier("test_mod","stoner"),STONER);
+
+        VOID_ITEM=new VoidItem(new FabricItemSettings()
+            .group(COOL_ITEMS)
+            .maxCount(1)
+            .rarity(Rarity.RARE)
+        );
+        Registry.register(Registry.ITEM,new Identifier("test_mod","void_item"),VOID_ITEM);
+
+        SPONGE_FRACTAL=new SpongeFractal(new FabricItemSettings()
+            .group(COOL_ITEMS)
+            .maxCount(1)
+            .rarity(Rarity.RARE)
+        );
+        Registry.register(Registry.ITEM,new Identifier("test_mod","sponge_fractal"),SPONGE_FRACTAL);
+
     }
 }

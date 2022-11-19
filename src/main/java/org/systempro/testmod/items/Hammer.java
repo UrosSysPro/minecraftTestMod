@@ -55,7 +55,8 @@ public class Hammer extends ToolItem {
             FlyingHammerEntity entity = new FlyingHammerEntity(EntityInitializer.FLYING_HAMMER_ENTITY, world);
             entity.set(user);
             world.spawnEntity(entity);
-            user.getInventory().removeOne(user.getStackInHand(hand));
+            if(!user.isCreative())
+                user.getInventory().removeOne(user.getStackInHand(hand));
         }
         return TypedActionResult.success(user.getStackInHand(hand),true);
     }

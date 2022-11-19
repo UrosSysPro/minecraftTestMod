@@ -1,5 +1,6 @@
 package org.systempro.testmod.blocks;
 
+import net.fabricmc.fabric.api.rendering.data.v1.RenderAttachmentBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -13,25 +14,19 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class DiscoBlockEntity extends BlockEntity {
-    public DiscoBlockEntity(BlockPos pos, BlockState state) {
+public class DiscoBlockEntity extends BlockEntity implements RenderAttachmentBlockEntity {
+
+    public DiscoBlockEntity(BlockPos pos, BlockState state)
+    {
         super(BlockInitializer.DISCO_BLOCK_ENTITY, pos, state);
     }
 
-    public static <T extends BlockEntity> void tick(World world, BlockPos pos, BlockState state, T discoBlockEntity) {
 
-        boolean entity_on_top=state.get(DiscoBlock.ENTITY_ON_TOP);
-        BlockState state1=BlockInitializer.DISCO_BLOCK.getDefaultState();
-        if(entity_on_top){
-            state1.with(DiscoBlock.ENTITY_ON_TOP,false);
-        }else{
-            int light=state.get(DiscoBlock.LIGHT);
-            light--;
-            if(light<0)light=0;
-            state1.with(DiscoBlock.LIGHT,light);
-        }
-        world.setBlockState(pos,state1);
-        world.updateListeners(pos,state,state1, Block.NOTIFY_LISTENERS);
+    public static <T extends BlockEntity> void tick(World world, BlockPos pos, BlockState state, T discoBlockEntity) {
+        int value=state.get(DiscoBlock.LIGHT);
+        value=(value+1)%16;
+        state.with(DiscoBlock.LIGHT,value);
+//        world.setBlockState(pos,state,Block.REDRAW_ON_MAIN_THREAD);
     }
 
 
@@ -57,5 +52,10 @@ public class DiscoBlockEntity extends BlockEntity {
     @Override
     public NbtCompound toInitialChunkDataNbt() {
         return createNbt();
+    }
+
+    @Override
+    public @org.jetbrains.annotations.Nullable Object getRenderAttachmentData() {
+        return null;
     }
 }
