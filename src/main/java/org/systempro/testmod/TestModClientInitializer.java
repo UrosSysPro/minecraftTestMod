@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import org.systempro.testmod.entities.EntityInitializer;
 import org.systempro.testmod.entities.FlyingHammerRenderer;
 import org.systempro.testmod.entities.FlyingMobRenderer;
+import org.systempro.testmod.entities.ShrekRenderer;
 
 public class TestModClientInitializer implements ClientModInitializer {
     @Override
@@ -12,5 +13,6 @@ public class TestModClientInitializer implements ClientModInitializer {
         EntityInitializer.init();
         EntityRendererRegistry.register(EntityInitializer.FLYING_MOB, FlyingMobRenderer::new);
         EntityRendererRegistry.register(EntityInitializer.FLYING_HAMMER_ENTITY, FlyingHammerRenderer::new);
+        EntityRendererRegistry.register(EntityInitializer.SHREK, ShrekRenderer::new);
     }
 }

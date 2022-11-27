@@ -14,7 +14,8 @@ import org.systempro.testmod.items.ItemInitializer;
 public class EntityInitializer {
     public static EntityType<FlyingHammerEntity> FLYING_HAMMER_ENTITY;
     public static EntityType<FlyingMobEntity> FLYING_MOB;
-    public static SpawnEggItem FLYING_MOB_SPAWN_EGG;
+    public static EntityType<ShrekEntity> SHREK;
+    public static SpawnEggItem FLYING_MOB_SPAWN_EGG,SHREK_SPAWN_EGG;
     public static void init(){
         FLYING_HAMMER_ENTITY=Registry.register(
             Registry.ENTITY_TYPE,
@@ -43,10 +44,28 @@ public class EntityInitializer {
             new Identifier("test_mod","flying_mob_spawn_egg"),
             FLYING_MOB_SPAWN_EGG
         );
+        SHREK= Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier("test_mod","shrek"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE,ShrekEntity::new)
+                .dimensions(EntityDimensions.fixed(0.4f,0.3f)).build()
+        );
+        SHREK_SPAWN_EGG=new SpawnEggItem(
+            SHREK,
+            0x007730,
+            0x505050,
+            new FabricItemSettings()
+                .group(ItemInitializer.COOL_ITEMS)
+        );
+        Registry.register(Registry.ITEM,
+            new Identifier("test_mod","shrek_spawn_egg"),
+            SHREK_SPAWN_EGG
+        );
         registerAttributes();
     }
     public static void registerAttributes(){
         FabricDefaultAttributeRegistry.register(FLYING_MOB,FlyingMobEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(FLYING_HAMMER_ENTITY,FlyingHammerEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(SHREK,FlyingHammerEntity.setAttributes());
     }
 }
